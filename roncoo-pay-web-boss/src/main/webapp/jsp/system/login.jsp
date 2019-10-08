@@ -1,10 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<jsp:include page="${baseURL }/common/taglib/taglib.jsp" />
+<jsp:include page="${baseURL }/common/taglib/taglib.jsp"/>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>龙果支付后台</title>
+<script src="${baseURL }/dwz/js/jquery-1.11.3.min.js" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="${baseURL }/dwz/themes/css/login.css" />
 <script type="text/javascript" language="javascript" src="${baseURL }/common/js/login/login.js"></script>
 </head>
@@ -14,7 +15,7 @@
 		<div id="login_header">
 			<h1 class="login_logo">
 				<a href="http://demo.dwzjs.com">
-					<img src="${baseURL }/dwz/themes/default/images/login_logo.png" />
+					<img src="${baseURL }/dwz/themes/default/images/login_logo1.png" />
 				</a>
 			</h1>
 			<div class="login_headerContent">
@@ -61,19 +62,24 @@
 								<li class="input_code">
 									<input id="code" name="captchaCode" size="6" />
 								</li>
-								
+
 								<li>
 									<span> <img class="rcCaptcha-btn rcCaptcha-img" src="${baseURL}/rcCaptcha.jpg" alt="点击更换验证码" title="点击更换验证码" width="65" height="24" />
 									</span>
-								</li>
-							</ul>
-						</div>
-					</c:if>
-					<div class="login_bar">
-						<input class="sub" type="submit" value=" " />
-					</div>
-				</form>
+                            </li>
+                        </ul>
+                    </div>
+                </c:if>
+                <div class="login_bar">
+                    <input class="sub" type="submit" value=" "/>
+                </div>
+            </form>
 
+            <div>
+                <br/> <br/> <font color="red">请先到<a href="http://www.roncoo.com?fromSource=roncoo-pay" target="_blank">龙果学院</a>注册,
+                然后使用注册账户登录!
+            </font>
+            </div>
 
 			</div>
 			<div class="login_banner">
@@ -86,21 +92,23 @@
 			</div>
 		</div>
 		<div id="login_footer">
-			Copyright &copy; 2015-2016
-			<a href="http://www.roncoo.com" target="_blank">龙果学院</a>
+			<span id="login_footer_text"></span>
+			<a href="http://www.roncoo.net" target="_blank">龙果支付</a>
 		</div>
 	</div>
 
 	<script>
 		$(function() {
+			$("#login_footer_text").text("Copyright © 2015-"+new Date().getFullYear());
+
 			$(".rcCaptcha-btn").click(
 					function() {
 						$(".rcCaptcha-img").attr(
 								"src",
-								'${baseURL}/rcCaptcha.jsp?'
+								'${baseURL}/rcCaptcha.jpg?'
 										+ new Date().getTime());
 					});
-		});
+		})
 	</script>
 </body>
 </html>
